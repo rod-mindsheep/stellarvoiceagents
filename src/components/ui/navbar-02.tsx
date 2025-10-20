@@ -188,11 +188,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
             </a>
             <a
               // size="sm"
-              className="text-white font-black flex items-center justify-items-center md:rounded-[15px] rounded-[5px] font-proxima md:text-[20px] text-[13px] px-[25px] py-[10px] shadow-sm bg-[#25005D]"
-              onClick={(e) => {
-                e.preventDefault();
-                if (onCtaClick) onCtaClick();
-              }}
+              className="text-white cursor-pointer font-black flex items-center justify-items-center md:rounded-[15px] rounded-[5px] font-proxima md:text-[20px] text-[13px] px-[25px] py-[10px] shadow-sm bg-[#25005D]"
             >
               {ctaText}
             </a>
