@@ -95,7 +95,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
       logoHref = '#',
       navigationLinks = defaultNavigationLinks,
       aboutText = 'CONTACT US',
-      aboutHref = '#signin',
+      aboutHref = '#contactus',
       ctaText = 'BOOK A DEMO',
       ctaHref = '#get-started',
       onSignInClick,
