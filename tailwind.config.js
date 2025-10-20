@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        roboto: ['Roboto', 'sans-serif'],
+        proxima: ['"Proxima Nova"', 'sans-serif'],
       },
     },
   },

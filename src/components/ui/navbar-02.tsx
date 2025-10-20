@@ -12,15 +12,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose, DialogDescription } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
-import type { ComponentProps } from 'react';
-import { MagneticButton } from '@/components/ui/magnetic-button';
 
 // Simple logo component for the navbar
 const Logo = ({ className, style, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
@@ -102,9 +94,9 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
       logo = <Logo />,
       logoHref = '#',
       navigationLinks = defaultNavigationLinks,
-      aboutText = 'ABOUT',
+      aboutText = 'CONTACT US',
       aboutHref = '#signin',
-      ctaText = 'CONTACT US',
+      ctaText = 'BOOK A DEMO',
       ctaHref = '#get-started',
       onSignInClick,
       onCtaClick,
@@ -164,7 +156,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
       <header
         ref={combinedRef}
         className={cn(
-          'pt-4 md:pt-10 top-0 left-0 z-50 w-full md:px-10 px-6 [&_*]:no-underline transition-all duration-500',
+          'py-4 md:pt-2 md:mt-10 top-0 left-0 z-50 w-full md:w-[90vw] [&_*]:no-underline transition-all duration-500 bg-white md:rounded-tl-[40px] md:rounded-tr-[40px]',
           className
         )}
         {...props}
@@ -173,219 +165,37 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
           {/* Left side */}
           <div className="flex items-center gap-2">
             {/* Main nav */}
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex items-center justify-items-center gap-2 shrink-0">
               <button
                 onClick={(e) => e.preventDefault()}
                 className="flex items-center gap-1 space-x-2 transition-colors cursor-pointer md:gap-4 text-primary hover:text-primary/90"
               >
                 <div className="text-2xl">
-                  <Logo className="w-[35px] h-[35px] md:w-[55px] md:h-[55px]" />
+                  <Logo className="ml-[30px] w-[145px] h-[43px] md:w-[256px] md:h-[71px]" />
                 </div>
-                <span className="text-[20px] md:text-[30px] uppercase text-white font-bold leading-none">
-                  MindsheepLabs
-                </span>
               </button>
             </div>
           </div>
           {/* Right side */}
-          <div className="flex items-center justify-end gap-2 md:gap-6">
+          <div className="hidden md:flex items-center justify-end gap-2 md:gap-6">
             <a
               href="#aboutmindsheeplabs"
               // variant="ghost"
               // size="sm"
-              className="text-sm hidden md:flex font-medium font-roboto text-[25px]"
+              className="text-sm font-extrabold hidden md:flex font-proxima text-[25px] text-[#25005D]"
             >
               {aboutText}
             </a>
-            {/* <a
+            <a
               // size="sm"
-              className="flex items-center justify-items-center md:rounded-[15px] rounded-[5px] font-roboto md:text-[25px] text-[13px] font-normal px-4 shadow-sm bg-gradient-to-r from-[#1A00D7] to-[#D700F3] md:h-[57px] md:w-[191px] w-[85px] h-[33px]"
+              className="text-white font-black flex items-center justify-items-center md:rounded-[15px] rounded-[5px] font-proxima md:text-[20px] text-[13px] px-[25px] py-[10px] shadow-sm bg-[#25005D]"
               onClick={(e) => {
                 e.preventDefault();
                 if (onCtaClick) onCtaClick();
               }}
             >
               {ctaText}
-            </a> */}
-            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-              <DialogTrigger asChild>
-                  <MagneticButton
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setIsDialogOpen(true);
-                    }}
-                    className="flex cursor-pointer items-center justify-center 
-                      md:rounded-[15px] rounded-[5px] font-roboto 
-                      md:text-[25px] text-[13px] font-normal px-4 
-                      shadow-sm bg-gradient-to-r from-[#1A00D7] to-[#D700F3] 
-                      md:h-[60px] md:w-[190px] w-[100px] h-[33px] 
-                      shrink-0 whitespace-nowrap"
-                  >
-                    <span className="inline-block px-1">{ctaText}</span>
-                  </MagneticButton>
-              </DialogTrigger>
-
-              <DialogContent className="z-1010 w-[90vw] max-w-md sm:max-w-lg mx-auto bg-white rounded-xl p-6 shadow-lg">
-                <DialogHeader className="space-y-2 text-center">
-                  <DialogTitle className="text-2xl font-bold text-black">
-                    Join Mindsheep Labs
-                  </DialogTitle>
-                  <DialogDescription className="text-sm leading-relaxed text-gray-700">
-                    We collaborate with agencies ready to rewire how they create, automate,
-                    and scale using AI. Tell us a bit about your goals so we can explore the
-                    right fit.
-                  </DialogDescription>
-                </DialogHeader>
-
-                <form className="flex flex-col w-full gap-4 mt-5">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none transition"
-                    required
-                  />
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="w-full p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none transition"
-                    required
-                  />
-                  <input
-                    type="text"
-                    placeholder="Your Agency / Company Name"
-                    className="w-full p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none transition"
-                  />
-
-                  <select
-                    className="w-full p-3 text-black border border-gray-300 rounded-md focus:ring-2 focus:ring-[#D700F3] outline-none transition"
-                    required
-                  >
-                    <option value="">What do you want to explore?</option>
-                    <option>Creative Automation (AI imagery, videos, influencers)</option>
-                    <option>Operational AI (proposal writing, workflows, reports)</option>
-                    <option>Data & Stack Integration (Google Ads, CRM, Meta)</option>
-                    <option>AI-Powered Service Expansion</option>
-                    <option>Other / Not Sure Yet</option>
-                  </select>
-
-                  <textarea
-                    placeholder="Tell us what challenges or goals you’re exploring with AI..."
-                    className="w-full p-3 text-black border border-gray-300 rounded-md h-28 resize-none focus:ring-2 focus:ring-[#D700F3] outline-none transition"
-                  ></textarea>
-
-                  <DialogFooter className="flex flex-col-reverse justify-end gap-3 mt-4 sm:flex-row">
-                    <DialogClose asChild>
-                      <Button
-                        variant="outline"
-                        className="w-full px-6 py-2 text-black transition border border-gray-300 rounded-md cursor-pointer sm:w-auto hover:bg-gray-100"
-                      >
-                        Cancel
-                      </Button>
-                    </DialogClose>
-                    <Button
-                      type="submit"
-                      className="w-full sm:w-auto px-6 py-2 text-white bg-gradient-to-r from-[#1A00D7] to-[#D700F3] rounded-md font-semibold cursor-pointer transition"
-                    >
-                      Submit
-                    </Button>
-                  </DialogFooter>
-                </form>
-              </DialogContent>
-
-            </Dialog>
-            {/* Mobile menu trigger */}
-            {/* Mobile menu trigger */}
-            {isMobile && (
-              <Dialog open={menuOpen} onOpenChange={setMenuOpen}>
-                <DialogTrigger asChild>
-                  <button
-                    className="group h-[40px] w-[33px] md:hidden flex items-center justify-center"
-                    onClick={() => setMenuOpen(!menuOpen)}
-                  >
-                    {menuOpen ? (
-                      // “X” icon when menu is open
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                      </svg>
-                    ) : (
-                      <HamburgerIcon className="h-[24px] w-[24px]" />
-                    )}
-                  </button>
-                </DialogTrigger>
-
-                <DialogContent
-                  className="fixed z-[1010] w-screen h-screen p-0 m-0 bg-gradient-to-br from-[#011d53] to-[#070029] text-white overflow-y-auto"
-                >
-                  {/* Screen reader only title */}
-                  <DialogHeader className="sr-only">
-                    <DialogTitle>Navigate Mindsheep Labs</DialogTitle>
-                  </DialogHeader>
-                  {/* Close button */}
-                  {/* <div className="absolute top-4 right-4">
-                    <button
-                      className="p-2 text-white"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                      </svg>
-                    </button>
-                  </div> */}
-
-                  {/* Mobile nav items */}
-                  <nav className="flex flex-col items-start gap-4 px-6 mt-20">
-                    {navigationLinks.map((link, index) => (
-                      <div key={index} className="w-full">
-                        {link.submenu ? (
-                          <div>
-                            <div className="mb-1 text-sm font-medium text-muted-foreground">{link.label}</div>
-                            <ul className="flex flex-col gap-2">
-                              {link.items?.map((item, itemIndex) => (
-                                <li key={itemIndex}>
-                                  <a
-                                    href={item.href}
-                                    className="block w-full px-4 py-2 rounded-md hover:bg-white/10"
-                                  >
-                                    {item.label}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : (
-                          <a
-                            href={link.href}
-                            className="block w-full px-4 py-2 text-lg font-medium rounded-md hover:bg-white/10"
-                          >
-                            {link.label}
-                          </a>
-                        )}
-                      </div>
-                    ))}
-                  </nav>
-                </DialogContent>
-              </Dialog>
-            )}
+            </a>
           </div>
         </div>
       </header>
