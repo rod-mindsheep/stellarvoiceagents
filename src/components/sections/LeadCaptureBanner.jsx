@@ -26,7 +26,7 @@ const LeadCaptureBanner = () => {
           <p className="text-[20px] mx-auto md:mx-0 mt-[30px] md:mt-0 md:text-[25px] text-white md:text-black max-w-lg mb-8 leading-[120%] normal-case w-[294px] md:w-[590px]">
             AI voice agents that engage, qualify, and book appointments 24/7 — for Real Estate, Health, and Finance.
           </p>
-          <button className="bg-[#F3F3F3] text-[#25005D] uppercase text-[20px] md:text-[25px] font-bold py-[8px] px-[15px] md:py-[15px] md:px-[35px] rounded-[5px] md:rounded-[10px] transition duration-300">
+          <button className="bg-[#F3F3F3] cursor-pointer text-[#25005D] uppercase text-[20px] md:text-[25px] font-bold py-[8px] px-[15px] md:py-[15px] md:px-[35px] rounded-[5px] md:rounded-[10px] transition duration-300">
             HEAR OUR AI DEMO
           </button>
         </div>
@@ -51,5 +51,6 @@ const LeadCaptureBanner = () => {
     </div>
   );
 };
+
 
 export default LeadCaptureBanner;
