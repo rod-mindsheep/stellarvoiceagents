@@ -11,7 +11,7 @@ const Footer = () => {
 
     return (
         // Outer container with the dark purple background and specific styling
-        <div className="bg-[#25005D] py-16 md:p-12 lg:p-20 text-white font-proxima md:h-[1233px] h-auto rounded-tl-[30px] rounded-tr-[30px] md:rounded-tr-[50px] md:rounded-tl-[50px] shadow-2xl w-full mx-auto">
+        <div id="contactus" className="bg-[#25005D] py-16 md:p-12 lg:p-20 text-white font-proxima md:h-[1233px] h-auto rounded-tl-[30px] rounded-tr-[30px] md:rounded-tr-[50px] md:rounded-tl-[50px] shadow-2xl w-full mx-auto">
             
             {/* 1. Top Section (Image, CTA Text, and Wave Visualizer) */}
             {/* This container now acts as the bounding box for the absolute wave image and holds the bottom border. */}
@@ -118,3 +118,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
