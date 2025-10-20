@@ -1,38 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
-@font-face {
-  font-family: "Proxima Nova";
-  src: url("/fonts/Proxima Nova/proximanova_regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Proxima Nova";
-  src: url("/fonts/Proxima Nova/proximanova_bold.otf") format("opentype");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Proxima Nova";
-  src: url("/fonts/Proxima Nova/proximanova_extrabold.otf") format("opentype");
-  font-weight: 800;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Proxima Nova";
-  src: url("/fonts/Proxima Nova/proximanova_black.otf") format("opentype");
-  font-weight: 900;
-  font-style: normal;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: proxima;
-  --font-mono: proxima;
+  --font-sans: roboto;
+  --font-mono: roboto;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -144,39 +121,336 @@
   body {
     @apply bg-background text-foreground;
   }
-}
-
-@media (max-width: 768px) {
-  body {
-    background-image: url("/background-mobile.png"),
-      linear-gradient(90deg, #473d92, #7868f880, #5f53c500);
-    background-size: 100%, 100% 894px;
-    background-repeat: no-repeat, no-repeat;
-    background-position: top, top;
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* improves scrolling on iOS */
   }
 }
 
-.waveform {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  height: 60px;
-  padding: 2rem 0;
-}
+/* ========== UTILITIES LAYER ========== */
+@layer utilities {
+  /* ✨ Ultra-Dense Starfield — 10x more stars, still performant */
 
-.wave-bar {
-  width: 3px;
-  background: #8b5cf6;
-  border-radius: 3px;
-  animation: wave 1.5s ease-in-out infinite;
-}
-
-@keyframes wave {
-  0%,
-  100% {
-    height: 20px;
+  #stars,
+  #stars2,
+  #stars3 {
+    background: transparent;
+    position: absolute;
+    width: 1px;
+    height: 1px;
   }
-  50% {
-    height: 60px;
+
+  #stars {
+    width: 2px;
+    height: 2px;
+    box-shadow: 63px 57px #fff, 182px 419px #fff, 289px 1800px #fff,
+      331px 1124px #fff, 456px 998px #fff, 523px 1503px #fff, 640px 620px #fff,
+      703px 1388px #fff, 800px 175px #fff, 950px 880px #fff, 1020px 1399px #fff,
+      1150px 1150px #fff, 1244px 1420px #fff, 1300px 1990px #fff,
+      1450px 650px #fff, 1550px 1320px #fff, 1600px 100px #fff,
+      1666px 1200px #fff, 1750px 420px #fff, 1840px 1640px #fff,
+      1900px 900px #fff, 1960px 1800px #fff, 180px 1670px #fff,
+      278px 1560px #fff, 377px 1444px #fff, 475px 300px #fff, 540px 1200px #fff,
+      640px 1560px #fff, 720px 1960px #fff, 780px 430px #fff, 860px 890px #fff,
+      960px 250px #fff, 1030px 1640px #fff, 1110px 1870px #fff,
+      1180px 1760px #fff, 1250px 950px #fff, 1310px 410px #fff,
+      1380px 700px #fff, 1450px 1850px #fff, 1510px 1700px #fff,
+      1600px 1380px #fff, 1680px 1550px #fff, 1730px 180px #fff,
+      1820px 130px #fff, 1900px 1650px #fff, 1970px 1900px #fff,
+      450px 1930px #fff, 550px 1730px #fff, 690px 1670px #fff, 820px 1790px #fff,
+      900px 1690px #fff, 970px 1580px #fff, 1050px 1450px #fff,
+      1180px 1370px #fff, 1300px 1200px #fff, 1440px 990px #fff,
+      1580px 810px #fff, 1680px 640px #fff, 1760px 500px #fff, 1890px 360px #fff,
+      1980px 200px #fff, 90px 90px #fff, 250px 180px #fff, 350px 300px #fff,
+      470px 500px #fff, 600px 700px #fff, 750px 900px #fff, 900px 1100px #fff,
+      1050px 1300px #fff, 1200px 1500px #fff, 1350px 1700px #fff,
+      1500px 1900px #fff;
+    animation: animStar 50s linear infinite;
+  }
+
+  #stars:after {
+    content: "";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: inherit;
+  }
+
+  #stars2 {
+    width: 2px;
+    height: 2px;
+    box-shadow: 80px 200px #fff, 250px 600px #fff, 400px 1200px #fff,
+      560px 1800px #fff, 720px 200px #fff, 880px 800px #fff, 1040px 1400px #fff,
+      1200px 1600px #fff, 1360px 1800px #fff, 1520px 400px #fff,
+      1680px 1000px #fff, 1840px 1600px #fff, 200px 200px #fff, 400px 800px #fff,
+      600px 1400px #fff, 800px 2000px #fff, 1000px 600px #fff,
+      1200px 1200px #fff, 1400px 1800px #fff, 1600px 400px #fff,
+      1800px 1000px #fff, 2000px 1600px #fff;
+    animation: animStar 100s linear infinite;
+  }
+
+  #stars2:after {
+    content: "";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: inherit;
+  }
+
+  #stars3 {
+    width: 3px;
+    height: 3px;
+    box-shadow: 150px 250px #fff, 350px 750px #fff, 550px 1250px #fff,
+      750px 1750px #fff, 950px 250px #fff, 1150px 750px #fff, 1350px 1250px #fff,
+      1550px 1750px #fff, 1750px 250px #fff, 1950px 750px #fff,
+      250px 1250px #fff, 450px 1750px #fff, 650px 250px #fff, 850px 750px #fff,
+      1050px 1250px #fff, 1250px 1750px #fff, 1450px 250px #fff,
+      1650px 750px #fff, 1850px 1250px #fff;
+    animation: animStar 150s linear infinite;
+  }
+
+  #stars3:after {
+    content: "";
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: inherit;
+  }
+
+  @keyframes animStar {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-2000px);
+    }
+  }
+
+  /* === Animated Gradient Background (Enhanced) === */
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animated-gradient {
+    background: linear-gradient(
+      -45deg,
+      #07032d,
+      #0a0991,
+      #237ffe,
+      #00b7ff,
+      #1207d9
+    );
+    background-size: 300% 300%;
+    animation: gradientAnimation 18s ease-in-out infinite;
+    background-attachment: fixed; /* subtle parallax effect */
+  }
+
+  .glitch {
+    position: relative;
+    color: white;
+    display: inline-block;
+    font-family: "Varela", sans-serif;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: white;
+    background: transparent;
+    overflow: hidden;
+  }
+
+  .glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00c8;
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+  }
+
+  .glitch::after {
+    left: -2px;
+    text-shadow: 2px 0 #00ffff;
+    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim-1 {
+    0% {
+      clip-path: inset(0 0 90% 0);
+    }
+    10% {
+      clip-path: inset(10% 0 80% 0);
+    }
+    20% {
+      clip-path: inset(85% 0 5% 0);
+    }
+    30% {
+      clip-path: inset(40% 0 43% 0);
+    }
+    40% {
+      clip-path: inset(60% 0 25% 0);
+    }
+    50% {
+      clip-path: inset(20% 0 60% 0);
+    }
+    60% {
+      clip-path: inset(70% 0 15% 0);
+    }
+    70% {
+      clip-path: inset(15% 0 70% 0);
+    }
+    80% {
+      clip-path: inset(30% 0 45% 0);
+    }
+    90% {
+      clip-path: inset(50% 0 30% 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  @keyframes glitch-anim-2 {
+    0% {
+      clip-path: inset(80% 0 10% 0);
+    }
+    10% {
+      clip-path: inset(10% 0 80% 0);
+    }
+    20% {
+      clip-path: inset(30% 0 50% 0);
+    }
+    30% {
+      clip-path: inset(60% 0 25% 0);
+    }
+    40% {
+      clip-path: inset(5% 0 85% 0);
+    }
+    50% {
+      clip-path: inset(50% 0 30% 0);
+    }
+    60% {
+      clip-path: inset(25% 0 60% 0);
+    }
+    70% {
+      clip-path: inset(70% 0 15% 0);
+    }
+    80% {
+      clip-path: inset(15% 0 70% 0);
+    }
+    90% {
+      clip-path: inset(40% 0 45% 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* === Rotating Gradient Border Effect (visible fix) === */
+
+  @property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+  }
+
+  .feature-card {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  /* ✅ FIXED — visible neon animated border */
+  .feature-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px; /* Border thickness */
+    background: linear-gradient(135deg, #1a00d7, #d700f3, #1a00d7);
+    background-size: 200% 200%;
+    animation: borderShift 3s linear infinite;
+    z-index: 1;
+  }
+
+  /* ✅ inner layer (the actual dark card) */
+  .feature-card::after {
+    content: "";
+    position: absolute;
+    inset: 2px; /* same as padding above */
+    border-radius: inherit;
+    background: linear-gradient(to bottom, #181022, #0b0515);
+    z-index: 2;
+  }
+
+  /* ensure content stays above both layers */
+  .feature-card > * {
+    position: relative;
+    z-index: 3;
+  }
+
+  /* animation for the gradient border */
+  @keyframes borderShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* === Animated Gradient Border (in/out hover animation) === */
+  .animated-border-container {
+    position: relative;
+    border-radius: 1rem;
+    background: linear-gradient(50deg, #1a00d7, #d700f3);
+    padding: 3px;
+    transition: 1s;
+    overflow: hidden;
+  }
+
+  .animated-border-container::before {
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 160px;
+    top: -100px;
+    right: 130px;
+    background: linear-gradient(-45deg, #1a00d7, #d700f3);
+    transform: rotate(-45deg) translate(0, -100px);
+    transition: 1s ease-in-out;
+    z-index: 0;
+  }
+
+  .animated-border-container:hover::before {
+    transform: rotate(-45deg) translate(0, 700px);
+  }
+
+  .animated-border-card {
+    position: relative;
+    border-radius: 1rem;
+    z-index: 1;
+    transition: 1s;
+    color: #fff;
   }
 }
