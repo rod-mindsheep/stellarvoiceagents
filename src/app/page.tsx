@@ -5,7 +5,6 @@ import ChallengeSolution from "@/components/sections/ChallengeSolution";
 import WhyUs from "@/components/sections/WhyUs";
 import MeetTheLeaders from "@/components/sections/MeetTheLeaders";
 import Footer from "@/components/sections/Footer";
-import Image from "next/image";
 
 export default function Home() {
   return (
