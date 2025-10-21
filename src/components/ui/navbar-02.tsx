@@ -179,7 +179,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
           {/* Right side */}
           <div className="hidden md:flex items-center justify-end gap-2 md:gap-6">
             <a
-              href="#aboutmindsheeplabs"
+              href="#contactus"
               // variant="ghost"
               // size="sm"
               className="text-sm font-extrabold hidden md:flex font-proxima text-[25px] text-[#25005D]"
