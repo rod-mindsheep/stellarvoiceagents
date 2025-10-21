@@ -14,7 +14,7 @@ const ChallengeSolutionSection = () => {
               THE CHALLENGE
             </h2>
             <p className="text-[20px] md:text-[25px] leading-relaxed opacity-80 normal-case">
-              Missed calls mean missed listings. Managing every buyer inquiry, showing request, and follow-up is time-consuming and costly.
+              Missed calls mean missed leads. Managing every buyer inquiry, showing request, and follow-up is time-consuming and costly.
             </p>
           </div>
 
@@ -33,5 +33,6 @@ const ChallengeSolutionSection = () => {
     </div>
   );
 };
+
 
 export default ChallengeSolutionSection;
