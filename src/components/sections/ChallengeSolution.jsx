@@ -34,5 +34,4 @@ const ChallengeSolutionSection = () => {
   );
 };
 
-
 export default ChallengeSolutionSection;
