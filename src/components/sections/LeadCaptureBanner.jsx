@@ -19,7 +19,7 @@ const LeadCaptureBanner = () => {
       <div className="relative z-10 mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
         
         {/* Left Side: Text and Button */}
-        <div className="w-full md:w-1/2 mt-[130px] md:mt-0 mb-10 lg:mb-0 text-center md:text-left">
+        <div className="w-[330px] md:w-1/2 mt-[130px] md:mt-0 mb-10 lg:mb-0 text-center md:text-left">
           <h1 className="text-[40px] h-[81px] md:h-fit md:text-[75px] font-extrabold text-white md:text-black uppercase leading-[100%] pb-4 opacity-90 bg-[#25005D] md:bg-transparent">
             NEVER LOSE ANOTHER LEAD.
           </h1>
@@ -54,3 +54,4 @@ const LeadCaptureBanner = () => {
 
 
 export default LeadCaptureBanner;
+
