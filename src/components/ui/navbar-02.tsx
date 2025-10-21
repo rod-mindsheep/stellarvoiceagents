@@ -171,7 +171,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                 className="flex items-center gap-1 space-x-2 transition-colors cursor-pointer md:gap-4 text-primary hover:text-primary/90"
               >
                 <div className="text-2xl">
-                  <Logo className="ml-[30px] w-[145px] h-[43px] md:w-[256px] md:h-[71px]" />
+                  <Logo className="ml-[30px] md:ml-0 w-[145px] h-[43px] md:w-[256px] md:h-[71px]" />
                 </div>
               </button>
             </div>
