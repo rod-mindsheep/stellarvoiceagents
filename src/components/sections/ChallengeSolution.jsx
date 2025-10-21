@@ -10,7 +10,7 @@ const ChallengeSolutionSection = () => {
           
           {/* Left Side: The Challenge */}
           <div className="flex-1 text-white pr-0 lg:pr-8 text-center md:text-left">
-            <h2 className="text-[30px] md:text[50px] font-extrabold mb-6">
+            <h2 className="text-[30px] md:text-[50px] font-extrabold mb-6">
               THE CHALLENGE
             </h2>
             <p className="text-[20px] md:text-[25px] leading-relaxed opacity-80 normal-case">
@@ -20,7 +20,7 @@ const ChallengeSolutionSection = () => {
 
           {/* Right Side: Our Solution (with its own distinct background) */}
           <div className="flex-1 bg-[#7868F8] rounded-2xl p-6 md:p-10 shadow-lg text-center md:text-left">
-            <h2 className="text-[30px] md:text[50px] font-extrabold text-white mb-6">
+            <h2 className="text-[30px] md:text-[50px] font-extrabold text-white mb-6">
               OUR SOLUTION
             </h2>
             <p className="text-[20px] md:text-[25px] leading-relaxed text-white opacity-80 normal-case">
@@ -33,5 +33,6 @@ const ChallengeSolutionSection = () => {
     </div>
   );
 };
+
 
 export default ChallengeSolutionSection;
