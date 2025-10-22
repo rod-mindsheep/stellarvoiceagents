@@ -114,7 +114,7 @@ const Footer = () => {
                 
                 {/* Left Side: Contact Form/Question */}
                 <div className="w-full mb-6 text-center md:mb-0 md:w-auto md:text-left">
-                    <p className="text-[25px] md:text-[40px] mb-0 md:mb-2">
+                    {/* <p className="text-[25px] md:text-[40px] mb-0 md:mb-2">
                         Do you have any questions?
                     </p>
                     <p className="text-[15px] md:text-[20px] mb-5 md:mb-9 opacity-80">
@@ -126,7 +126,7 @@ const Footer = () => {
                             placeholder="Enter Your Email"
                             className="bg-transparent mx-auto md:mx-0 h-[46px] w-[251px] border-[0.5px] border-white rounded-[8px] border-opacity-50 focus:border-opacity-100 py-[5px] px-[20px] text-white text-base focus:outline-none placeholder-gray-400"
                         />
-                    </form>
+                    </form> */}
                 </div>
 
                 {/* Right Side: Logo and Copyright */}
@@ -155,3 +155,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
