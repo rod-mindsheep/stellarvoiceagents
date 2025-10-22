@@ -14,6 +14,16 @@ import {
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
 
+// TypeScript declaration to inform the compiler about the existence of the Calendly object on the global window.
+// This resolves the "Property 'Calendly' does not exist on type 'Window & typeof globalThis'" error.
+declare global {
+    interface Window {
+        Calendly: {
+            initPopupWidget: (options: { url: string }) => void;
+        };
+    }
+}
+
 // Simple logo component for the navbar
 const Logo = ({ className, style, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
   <img
