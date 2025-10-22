@@ -41,7 +41,7 @@ const features = [
       normal: "/whyusicons/Clock.png",
       hover: "/whyusicons/Clock-dark.png",
     },
-    title: "24/7 MULTI-INDUSTRY COVERAGE",
+    title: "24/7 COVERAGE",
     description: {
         normal: "Works around the clock for real estate, healthcare, and finance teams, even outside office hours.",
         hover: "Captures <strong>45% more</strong> off-hour leads.",
@@ -100,5 +100,6 @@ const WhyUsSection = () => {
     </div>
   );
 };
+
 
 export default WhyUsSection;
