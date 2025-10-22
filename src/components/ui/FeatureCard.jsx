@@ -43,7 +43,7 @@ const FeatureCard = ({ iconUrls, title, description }) => {
             </div>
             
             {/* Title: Use conditional text color based on state */}
-            <h3 className={`text-[25px] font-extrabold uppercase mb-3 tracking-wider text-center ${titleColor}`}>
+            <h3 className={`text-[25px] font-extrabold uppercase mb-3 tracking-wider mx-auto text-center ${titleColor}`}>
                 {title}
             </h3>
             
@@ -56,5 +56,6 @@ const FeatureCard = ({ iconUrls, title, description }) => {
         </div>
     );
 };
+
 
 export default FeatureCard;
