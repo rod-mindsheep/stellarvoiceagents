@@ -72,10 +72,11 @@ const AudioDemoCard = ({ agentNumber }) => {
 
             {/* 3. Agent Label */}
             <h3 className="text-[20px] md:text-[30px] font-extrabold text-[#25005D] uppercase tracking-wider mt-2">
-                AI AGENT {agentNumber}
+                AI AGENT DEMO {agentNumber}
             </h3>
         </div>
     );
 };
+
 
 export default AudioDemoCard;
