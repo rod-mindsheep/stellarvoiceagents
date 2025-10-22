@@ -27,7 +27,7 @@ const LeadCaptureBanner = () => {
             AI voice agents that engage, qualify, and book appointments 24/7 — for Real Estate, Health, and Finance.
           </p>
           <button className="bg-[#F3F3F3] text-[#25005D] cursor-pointer uppercase text-[20px] md:text-[25px] font-bold py-[8px] px-[15px] md:py-[15px] md:px-[35px] rounded-[5px] md:rounded-[10px] transition duration-300">
-            HEAR OUR AI DEMO
+            Book an AI demo
           </button>
         </div>
         
@@ -51,5 +51,6 @@ const LeadCaptureBanner = () => {
     </div>
   );
 };
+
 
 export default LeadCaptureBanner;
