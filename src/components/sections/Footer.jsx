@@ -47,7 +47,7 @@ const Footer = () => {
                             Book a quick demo and experience how Stellar Voice Agents turn leads into appointments — automatically.
                         </p>
                         <button className="bg-[#7868F8] border-1 border-[#F3F3F3] hover:bg-[#6A5AF5] cursor-pointer text-white font-bold mt-20 md:mt-0 py-[8px] px-[15px] md:py-[15px] uppercase md:px-[35px] rounded-md text-[20px] md:text-[25px] transition duration-300 shadow-xl tracking-wider">
-                            Book a Demo Today!
+                            Book a call with Gary!
                         </button>
                     </div>
                 </div>
@@ -118,3 +118,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
