@@ -1,6 +1,41 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 
 const Footer = () => {
+    // 1. Dynamically load the Calendly widget script and CSS on component mount.
+    useEffect(() => {
+        // Load Calendly CSS
+        const link = document.createElement('link');
+        link.href = 'https://assets.calendly.com/assets/external/widget.css';
+        link.rel = 'stylesheet';
+        document.head.appendChild(link);
+
+        // Load Calendly JS
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        document.body.appendChild(script);
+
+        // Cleanup function to remove the added elements when the component unmounts
+        return () => {
+            document.head.removeChild(link);
+            document.body.removeChild(script);
+        };
+    }, []);
+
+    // 2. Function to open the Calendly pop-up
+    const handleOpenModal = () => {
+        // Check if the Calendly global object is available
+        if (window.Calendly) {
+            // Use the official initPopupWidget method to show the scheduling window
+            window.Calendly.initPopupWidget({ url: 'https://calendly.com/garysarco1' });
+        } else {
+            console.error("Calendly script not yet loaded. Opening direct link as fallback.");
+            // Fallback: open the direct link in a new tab if the script failed to load
+            window.open('https://calendly.com/garysarco1', '_blank');
+        }
+    };
+
     // Placeholder image URL for the main woman's photo - replace with your actual import or path
     const imageUrl = "/woman-footer.png"; 
     // New variables for responsive wave visualizer images
@@ -18,10 +53,10 @@ const Footer = () => {
             <div className="relative md:border-b px-8 md:px-0 border-white border-opacity-30 pb-12 md:pb-24 flex flex-col lg:flex-row items-center justify-items-center w-full md:w-[80vw] mx-auto">
                 
                 {/* Content Wrapper for CTA and Image (to prevent absolute wave from disrupting layout) */}
-                <div className="flex flex-col lg:flex-row items-center justify-items-center w-full z-20">
+                <div className="z-20 flex flex-col items-center w-full lg:flex-row justify-items-center">
                     
                     {/* Left Side: Image (Hidden on small screens based on user's original code) */}
-                    <div className="hidden relative w-full md:w-1/2 md:flex justify-center mb-8 lg:mb-0">
+                    <div className="relative justify-center hidden w-full mb-8 md:w-1/2 md:flex lg:mb-0">
                         <div className="p-0">
                             {/* The white box in the design is implied here by the positioning */}
                             <img 
@@ -46,7 +81,9 @@ const Footer = () => {
                         <p className="text-[15px] md:text-[25px] mb-8 max-w-md lg:max-w-none">
                             Book a quick demo and experience how Stellar Voice Agents turn leads into appointments — automatically.
                         </p>
-                        <button className="bg-[#7868F8] border-1 border-[#F3F3F3] hover:bg-[#6A5AF5] cursor-pointer text-white font-bold mt-20 md:mt-0 py-[8px] px-[15px] md:py-[15px] uppercase md:px-[35px] rounded-md text-[20px] md:text-[25px] transition duration-300 shadow-xl tracking-wider">
+                        <button 
+                            onClick={handleOpenModal}
+                            className="bg-[#7868F8] border-1 border-[#F3F3F3] hover:bg-[#6A5AF5] cursor-pointer text-white font-bold mt-20 md:mt-0 py-[8px] px-[15px] md:py-[15px] uppercase md:px-[35px] rounded-md text-[20px] md:text-[25px] transition duration-300 shadow-xl tracking-wider">
                             Book a call with Gary!
                         </button>
                     </div>
@@ -59,7 +96,7 @@ const Footer = () => {
                     <img
                         src={waveImageUrldesktop}
                         alt="Wave audio visualizer graphic desktop"
-                        className="w-full h-auto object-cover hidden md:block"
+                        className="hidden object-cover w-full h-auto md:block"
                     />
                     {/* Mobile Image: Full width on mobile, centered (UPDATED) */}
                     <img
@@ -76,7 +113,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row items-start justify-between pt-16 w-[313px] md:w-[1236px] mx-auto normal-case">
                 
                 {/* Left Side: Contact Form/Question */}
-                <div className="mb-6 md:mb-0 w-full md:w-auto text-center md:text-left">
+                <div className="w-full mb-6 text-center md:mb-0 md:w-auto md:text-left">
                     <p className="text-[25px] md:text-[40px] mb-0 md:mb-2">
                         Do you have any questions?
                     </p>
@@ -95,7 +132,7 @@ const Footer = () => {
                 {/* Right Side: Logo and Copyright */}
                 <div className="flex flex-col items-end w-full md:w-auto mt-7 md:mt-0">
                     {/* Stellar Voice Agents Logo (Simplified) */}
-                    <div className="flex items-center space-x-2 mb-2 mx-auto md:mx-0">
+                    <div className="flex items-center mx-auto mb-2 space-x-2 md:mx-0">
                         {/* Star icon */}
                         <img
                             src="/footer-logo.png"
@@ -118,4 +155,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
