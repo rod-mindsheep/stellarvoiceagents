@@ -152,6 +152,40 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
       }
     };
 
+    // 1. Dynamically load the Calendly widget script and CSS on component mount.
+    useEffect(() => {
+        // Load Calendly CSS
+        const link = document.createElement('link');
+        link.href = 'https://assets.calendly.com/assets/external/widget.css';
+        link.rel = 'stylesheet';
+        document.head.appendChild(link);
+
+        // Load Calendly JS
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        document.body.appendChild(script);
+
+        // Cleanup function to remove the added elements when the component unmounts
+        return () => {
+            document.head.removeChild(link);
+            document.body.removeChild(script);
+        };
+    }, []);
+
+    // 2. Function to open the Calendly pop-up
+    const handleOpenModal = () => {
+        // Check if the Calendly global object is available
+        if (window.Calendly) {
+            // Use the official initPopupWidget method to show the scheduling window
+            window.Calendly.initPopupWidget({ url: 'https://calendly.com/garysarco1' });
+        } else {
+            console.error("Calendly script not yet loaded. Opening direct link as fallback.");
+            // Fallback: open the direct link in a new tab if the script failed to load
+            window.open('https://calendly.com/garysarco1', '_blank');
+        }
+    };
+
     return (
       <header
         ref={combinedRef}
@@ -165,7 +199,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
           {/* Left side */}
           <div className="flex items-center gap-2">
             {/* Main nav */}
-            <div className="flex items-center justify-items-center gap-2 shrink-0">
+            <div className="flex items-center gap-2 justify-items-center shrink-0">
               <button
                 onClick={(e) => e.preventDefault()}
                 className="flex items-center gap-1 space-x-2 transition-colors cursor-pointer md:gap-4 text-primary hover:text-primary/90"
@@ -177,7 +211,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
             </div>
           </div>
           {/* Right side */}
-          <div className="hidden md:flex items-center justify-items-center justify-end gap-2 md:gap-6">
+          <div className="items-center justify-end hidden gap-2 md:flex justify-items-center md:gap-6">
             <a
               href="#aboutmindsheeplabs"
               // variant="ghost"
@@ -187,6 +221,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
               {aboutText}
             </a>
             <a
+              onClick={handleOpenModal}
               // size="sm"
               className="text-white cursor-pointer font-black flex items-center justify-items-center md:rounded-[15px] rounded-[5px] font-proxima md:text-[20px] text-[13px] px-[25px] py-[10px] shadow-sm bg-[#25005D]"
             >
